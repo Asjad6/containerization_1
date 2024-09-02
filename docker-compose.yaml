@@ -24,5 +24,19 @@ services:
       - RABBITMQ_DEFAULT_USER: guest
       - RABBITMQ_DEFAULT_PASS: guest
 
+  vproapp:
+    image: asjad6/vprofile_app:V1
+    ports:
+      - "8080:8080"
+
+    volumes:
+      - vproappdata:/usr/local/tomcat/webapps
+
+  vproweb:
+    image: asjad6/vprofile_web:V1
+    ports:
+      - "80:80"
+
 volumes:
   vprodbdata: {}
+  vproappdata: {}
